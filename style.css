@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Gunakan vh (viewport height) untuk memastikan tinggi 100% layar browser */
+    height: 100vh; 
+}
+
+body {
+    background-color: #2b5c9e; /* Warna biru sesuai gambar Anda */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;    /* Menyusun teks ke bawah (vertikal) */
+    justify-content: center;   /* Menarik seluruh blok teks ke tengah vertikal */
+    align-items: center;       /* Menarik seluruh blok teks ke tengah horizontal */
+    text-align: center;        /* Memastikan baris teks tetap rata tengah */
+}
+/* 1. Tampilan Utama Tombol */
+.btn-modern {
+    background-color: #ffffff;    /* Warna dasar tombol (Putih) */
+    color: #2b5c9e;               /* Warna teks (Biru sesuai background web Anda) */
+    border: 2px solid #ffffff;    /* Garis pinggir tombol */
+    padding: 12px 30px;           /* Jarak dalam (atas-bawah, kiri-kanan) agar tombol tebal */
+    font-size: 16px;              /* Ukuran teks */
+    font-weight: bold;            /* Membuat teks tebal */
+    border-radius: 8px;           /* Membuat sudut tombol melengkung (tidak kaku) */
+    cursor: pointer;              /* Mengubah kursor menjadi ikon tangan saat diarahkan ke tombol */
+    letter-spacing: 1px;          /* Memberi jarak sedikit antar huruf */
+    
+    /* KUNCI UTAMA: Membuat perubahan warna menjadi halus saat disentuh */
+    transition: all 0.3s ease; 
+}
+
+/* 2. Efek Saat Kursor Menyentuh Tombol (Hover) */
+.btn-modern:hover {
+    background-color: #1d4478;    /* Berubah menjadi biru gelap */
+    color: #ffffff;               /* Warna teks berubah jadi putih */
+    border-color: #1d4478;        /* Garis pinggir ikut berubah warna */
+    
+    /* Efek bayangan halus di bawah tombol agar terlihat melayang */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    
+    /* Sedikit efek naik ke atas (efek 3D) */
+    transform: translateY(-2px); 
+}
+
+/* 3. Efek Saat Tombol Diklik (Active) */
+.btn-modern:active {
+    transform: translateY(1px);   /* Tombol sedikit turun saat ditekan (seperti membal) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
