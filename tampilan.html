@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVERSTRIP — Photo Booth Studio</title>
+<link rel="stylesheet" href="style_tampilan.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="logo">EVER<span>STRIP</span></div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#booth">Booth</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📸 PHOTO BOOTH STUDIO</div>
+    <h1>EVER<span>STRIP</span></h1>
+    <p>Abadikan momen seru bersama teman, keluarga, dan komunitas dalam photostrip yang aesthetic, personal, dan penuh kenangan. Foto, filter, dan dekorasi — semua dalam satu studio digital.</p>
+    <div class="hero-buttons">
+      <a href="#booth" class="btn btn-primary">🎬 Mulai Foto Yuk!</a>
+      <a href="#about" class="btn btn-secondary">Kenalan Dulu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-title">
+    <div class="eyebrow">TENTANG KAMI</div>
+    <h2>Kenalan dengan EVERSTRIP</h2>
+    <p>Empat sahabat, satu visi: membuat setiap momen jadi lebih berwarna lewat photostrip.</p>
+  </div>
+
+  <p class="about-intro">
+    EVERSTRIP lahir dari kecintaan kami terhadap photobooth klasik dan keinginan menghadirkan pengalaman itu secara digital. Kami percaya setiap tawa, gaya, dan ekspresi layak diabadikan dalam bingkai yang bisa dikenang selamanya.
+  </p>
+
+  <div class="vision-mission">
+    <div class="vm-card">
+      <h3>🎯 Visi</h3>
+      <p>Menjadi platform photostrip digital #1 di Indonesia yang kreatif, inklusif, dan mudah diakses siapa saja.</p>
+    </div>
+    <div class="vm-card">
+      <h3>🚀 Misi</h3>
+      <p>Menghadirkan fitur foto interaktif, filter berkualitas, dan pengalaman personalisasi tanpa batas untuk setiap pengguna.</p>
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="avatar">👩‍💻</div>
+      <h3>Ailsa Putri</h3>
+      <div class="role">Founder & CEO</div>
+      <p>Pencetus ide EVERSTRIP, penggemar photobooth sejak SMA, dan visioner di balik setiap fitur seru.</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">👨‍🎨</div>
+      <h3>Bagas Pratama</h3>
+      <div class="role">Creative Director</div>
+      <p>Otak di balik tampilan aesthetic EVERSTRIP. Percaya bahwa desain bagus bikin foto makin cakep.</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">👩‍🔧</div>
+      <h3>Citra Lestari</h3>
+      <div class="role">Lead Developer</div>
+      <p>Ngoding siang malam biar webcam, filter, dan drag-drop emoji berjalan mulus tanpa drama.</p>
+    </div>
+    <div class="team-card">
+      <div class="avatar">👨‍💼</div>
+      <h3>Dimas Saputra</h3>
+      <div class="role">Marketing Lead</div>
+      <p>Yang bikin EVERSTRIP dikenal banyak orang. Selalu punya ide konten seru buat komunitas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN CONTENT / PHOTOBOOTH ===== -->
+<section id="booth">
+  <div class="section-title">
+    <div class="eyebrow">STUDIO VIRTUAL</div>
+    <h2>Photobooth EVERSTRIP</h2>
+    <p>Ambil foto dari webcam atau upload, pilih filter favorit, tambahkan emoji, lalu download photostrip kamu!</p>
+  </div>
+
+  <div class="booth-layout">
+    <!-- Control panel -->
+    <aside class="control-panel">
+      <div class="control-group">
+        <h3>📷 Sumber Foto</h3>
+        <div class="source-buttons">
+          <button class="src-btn active" id="btnWebcam">
+            <span class="icon">🎥</span> Webcam
+          </button>
+          <button class="src-btn" id="btnUpload">
+            <span class="icon">📁</span> Upload
+          </button>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+      </div>
+
+      <div class="control-group">
+        <h3>🎨 Filter</h3>
+        <div class="filter-grid">
+          <button class="filter-btn active" data-filter="f-normal">Normal</button>
+          <button class="filter-btn" data-filter="f-vivid">Vivid</button>
+          <button class="filter-btn" data-filter="f-mono">Monochrome</button>
+          <button class="filter-btn" data-filter="f-sepia">Sepia</button>
+          <button class="filter-btn" data-filter="f-cool">Cool</button>
+          <button class="filter-btn" data-filter="f-warm">Warm</button>
+          <button class="filter-btn" data-filter="f-fade">Fade</button>
+          <button class="filter-btn" data-filter="f-dreamy">Dreamy</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <h3>😊 Emoji (klik untuk tambah)</h3>
+        <div class="emoji-grid" id="emojiGrid"></div>
+      </div>
+
+      <div class="control-group">
+        <h3>⚡ Aksi</h3>
+        <div class="action-buttons">
+          <button class="action-btn shoot" id="btnShoot">📸 Ambil Foto</button>
+          <button class="action-btn download" id="btnDownload">⬇️ Download Strip</button>
+          <button class="action-btn reset" id="btnReset">🔄 Reset Semua</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Stage -->
+    <div class="booth-stage">
+      <div class="camera-frame" id="cameraFrame">
+        <video id="video" autoplay playsinline style="display:none"></video>
+        <img class="preview" id="previewImg" style="display:none" alt="preview">
+        <div class="placeholder" id="placeholder">
+          <div class="big-icon">📷</div>
+          <div>Klik <b>Webcam</b> untuk mulai kamera<br>atau <b>Upload</b> foto dari galeri</div>
+        </div>
+        <div class="countdown-overlay" id="countdown">3</div>
+        <div class="flash" id="flash"></div>
+      </div>
+
+      <div class="strip-container">
+        <div class="photostrip" id="photostrip">
+          <div class="strip-slot" data-slot="0"><span class="slot-num">1</span></div>
+          <div class="strip-slot" data-slot="1"><span class="slot-num">2</span></div>
+          <div class="strip-slot" data-slot="2"><span class="slot-num">3</span></div>
+          <div class="strip-brand">EVER<span>STRIP</span></div>
+        </div>
+      </div>
+
+      <p class="strip-hint">💡 Klik emoji di strip untuk memilih, lalu drag untuk pindah, gunakan tombol ➕/➖/🔄 untuk mengatur ukuran & rotasi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-title">
+    <div class="eyebrow">HUBUNGI KAMI</div>
+    <h2>Yuk, Ngobrol!</h2>
+    <p>Punya pertanyaan, ide kolaborasi, atau mau booking booth offline? Kami siap dengerin.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Kontak & Sosial Media</h3>
+      <p>Kami aktif setiap hari kerja. Jangan ragu untuk menyapa!</p>
+      <div class="contact-item">
+        <div class="ci-icon">📧</div>
+        <div class="ci-text"><strong>Email</strong><span>hello@everstrip.id</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div class="ci-text"><strong>WhatsApp</strong><span>+62 812-3456-7890</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div class="ci-text"><strong>Studio</strong><span>Jl. Kreatif No. 17, Bandung</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📸</div>
+        <div class="ci-text"><strong>Instagram</strong><span>@everstrip.id</span></div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <label>Nama</label>
+      <input type="text" placeholder="Nama kamu" required>
+      <label>Email</label>
+      <input type="email" placeholder="email@example.com" required>
+      <label>Pesan</label>
+      <textarea placeholder="Tulis pesanmu di sini..." required></textarea>
+      <button type="submit">Kirim Pesan ✉️</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>EVER<span>STRIP</span></h3>
+      <p>Photobooth digital yang bikin setiap momen jadi lebih berwarna. Dibuat dengan ❤️ di Indonesia.</p>
+      <div class="footer-social">
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="TikTok">🎵</a>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#booth">Booth</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#booth">Photostrip Digital</a></li>
+        <li><a href="#booth">Filter & Emoji</a></li>
+        <li><a href="#">Sewa Booth Offline</a></li>
+        <li><a href="#">Kolaborasi Event</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Bantuan</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Panduan</a></li>
+        <li><a href="#">Kebijakan Privasi</a></li>
+        <li><a href="#">Syarat & Ketentuan</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 EVERSTRIP. All rights reserved. Made with 💛 by the EVERSTRIP Team.
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="program_tampilan.js"></script>
+</body>
+</html>
