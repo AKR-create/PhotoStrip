@@ -1,0 +1,801 @@
+:root {
+  --butter-yellow: #FFF29C;
+  --butter-yellow-light: #FFF9D2;
+  --lapis-blue: #2B579A;
+  --lapis-blue-dark: #1E3D6E;
+  --accent-pink: #FFB6C1;
+  --accent-pink-dark: #FF69B4;
+  --bg-cream: #FCFBF4;
+  --card-bg: #FFFFFF;
+  --text-dark: #222222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff;
+  border-bottom: 2px solid var(--butter-yellow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: var(--lapis-blue);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--lapis-blue);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+
+.nav-item:hover {
+  opacity: 0.7;
+}
+
+/* Page Navigation System */
+.main-container {
+  flex: 1;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.page {
+  display: none;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Common Titles */
+.page-title {
+  text-align: center;
+  color: var(--lapis-blue);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* Button Styles & Inverted Hover (Req #10) */
+.btn-continue {
+  background-color: var(--butter-yellow);
+  color: var(--lapis-blue);
+  border: 2px solid var(--lapis-blue);
+  padding: 12px 36px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-continue:hover {
+  background-color: var(--lapis-blue);
+  color: var(--butter-yellow);
+  border-color: var(--lapis-blue);
+}
+
+/* Ripple Button (Req #2) */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  color: var(--lapis-blue);
+  border: 2px solid var(--lapis-blue);
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--butter-yellow);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* PAGE 1: HOME */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle, var(--butter-yellow-light) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.brand-title {
+  font-size: 3.5rem;
+  color: var(--lapis-blue);
+  letter-spacing: 2px;
+}
+
+.brand-subtitle {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.brand-desc {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.tagline {
+  margin-top: 30px;
+  font-style: italic;
+  color: #777;
+}
+
+.services-section, .about-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background-color: var(--butter-yellow-light);
+  border-radius: 15px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--lapis-blue);
+  margin-bottom: 25px;
+}
+
+.services-grid, .team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.service-card, .team-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.team-card h3 {
+  color: var(--lapis-blue);
+  font-size: 1.1rem;
+}
+
+.team-card .role {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.contact-section {
+  background-color: var(--lapis-blue);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.contact-section a {
+  color: var(--butter-yellow);
+}
+
+.footer-copyright {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* PAGE 2: FRAME SELECTOR */
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Pink Transition for All & Filter (Req #8) */
+.btn-toggle {
+  background-color: var(--butter-yellow);
+  border: none;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-toggle.pink-active, .btn-toggle:active {
+  background-color: var(--accent-pink) !important;
+  color: white;
+}
+
+/* Sub Filter Panel Horizontal (Req #9) */
+.filter-sub-panel {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.filter-sub-panel.hidden {
+  display: none;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.sub-filter-btn {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.sub-filter-btn.active {
+  background: var(--lapis-blue);
+  color: white;
+  border-color: var(--lapis-blue);
+}
+
+/* Carousel & Navigation (Req #7) */
+.frame-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.frame-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 10px;
+  flex: 1;
+}
+
+.carousel-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-arrow {
+  background: var(--butter-yellow);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lapis-blue);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.frame-card {
+  min-width: 140px;
+  background: white;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.frame-card.selected {
+  border-color: var(--lapis-blue);
+  transform: scale(1.05);
+}
+
+.frame-preview-box {
+  background: #f0f0f0;
+  height: 220px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.frame-preview-box.theme-dark {
+  background: #222;
+}
+
+.frame-preview-box.theme-cute {
+  background: #FFE4E1;
+}
+
+.slot-placeholder {
+  background: #88C0D0;
+  flex: 1;
+  border-radius: 2px;
+}
+
+.action-footer {
+  text-align: center;
+}
+
+/* PAGE 3: CAMERA & SLOTS */
+.booth-container {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.viewfinder-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  margin: 0 auto 20px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#webcam-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.countdown-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-overlay.hidden {
+  display: none;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Timer Toggle Transition (Req #3) */
+.btn-pink-toggle {
+  background-color: var(--butter-yellow);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pink-toggle.active {
+  background-color: var(--accent-pink);
+  color: white;
+}
+
+.btn-shutter {
+  background: white;
+  border: 2px solid #ccc;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--lapis-blue);
+}
+
+.btn-burst {
+  background: #FF6B6B;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* List of Photos Slots (Req #5, #6, #11) */
+.slots-container {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.slots-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.slot-badge {
+  background: #EBF3FE;
+  color: var(--lapis-blue);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.btn-reset {
+  background: #FF8585;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.slots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.slot-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #F9F9F9;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #EEE;
+}
+
+.slot-item.dragging {
+  opacity: 0.5;
+}
+
+.slot-thumb {
+  width: 50px;
+  height: 40px;
+  background: #DDD;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.slot-name {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slot-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drag-handle {
+  cursor: grab;
+  color: #AAA;
+  font-size: 1.1rem;
+}
+
+.slots-footer {
+  text-align: center;
+}
+
+.btn-upload-all {
+  display: inline-block;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* PAGE 4: DECORATION */
+.editor-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.photostrip-stage {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  background: #E2E2D0;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+/* Photostrip Frame & Lapis Border Animation (Req #12) */
+.photostrip-frame {
+  position: relative;
+  width: 180px;
+  background-color: #FFFFFF;
+  padding: 15px 12px 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  border: 4px solid transparent;
+  overflow: hidden;
+}
+
+.photostrip-frame.border-lapis {
+  border-color: var(--lapis-blue);
+}
+
+/* Brush Down Animation */
+.brush-overlay {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 87, 154, 0.2);
+  pointer-events: none;
+}
+
+.brush-overlay.animate-brush {
+  animation: brushDown 0.6s ease-out forwards;
+}
+
+@keyframes brushDown {
+  0% { top: -100%; }
+  50% { top: 0; }
+  100% { top: 100%; }
+}
+
+.strip-photos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.strip-photo-item {
+  width: 100%;
+  height: 110px;
+  background: #eee;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.strip-footer {
+  text-align: center;
+}
+
+.strip-text {
+  font-size: 0.75rem;
+  color: #333;
+  margin-top: 4px;
+}
+
+/* Controls Panel */
+.editor-controls {
+  flex: 1.2;
+  min-width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--lapis-blue);
+  margin-bottom: 8px;
+}
+
+.sub-info {
+  display: block;
+  font-size: 0.75rem;
+  color: #FF6B6B;
+  font-weight: normal;
+}
+
+.color-palette {
+  display: flex;
+  gap: 10px;
+}
+
+.color-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-dot.active {
+  border-color: var(--lapis-blue);
+}
+
+/* Sticker Picker (Req #13) */
+.sticker-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.sticker-picker span {
+  font-size: 1.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+}
+
+.sticker-picker span:hover {
+  transform: scale(1.2);
+}
+
+/* Draggable Sticker Element */
+.placed-sticker {
+  position: absolute;
+  font-size: 2rem;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+  line-height: 1;
+}
+
+.placed-sticker.selected {
+  outline: 1px dashed var(--lapis-blue);
+}
+
+#footer-text-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* PAGE 5: EXPORT */
+.export-layout {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.preview-stage {
+  background: #E2E2D0;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.export-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 220px;
+}
+
+.btn-action {
+  background: white;
+  border: 2px solid var(--lapis-blue);
+  color: var(--lapis-blue);
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-action.btn-gold {
+  background: var(--butter-yellow);
+  border-color: var(--butter-yellow);
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERSTRIP - Preserve Thy Moments</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="logo-title">AN ARCHIVE OF MOMENTS</div>
+    <nav class="nav-links">
+      <a href="#about" class="nav-item">ABOUT</a>
+      <a href="#services" class="nav-item">SERVICE</a>
+      <a href="#contact" class="nav-item">CONTACT</a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <!-- PAGE 1: HOME / LANDING -->
+    <section id="page-1" class="page active">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="brand-title">EVERSTRIP</h1>
+          <h2 class="brand-subtitle">preserve thy moments</h2>
+          <p class="brand-desc">
+            Everstrip is a small place where fleeting memories become timeless keepsakes. 
+            Create thy own photostrip, decorate them with charming details, and preserve the memories dearest to thee.
+          </p>
+          <button id="btn-begin" class="btn-ripple">BEGIN</button>
+        </div>
+        <p class="tagline">Every Moment Deserves A Frame, And Every Memory, A Place To Dwell</p>
+      </div>
+
+      <!-- Services Section -->
+      <section id="services" class="services-section">
+        <h2 class="section-title">OUR SERVICES</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>The Frame Collections</h3>
+            <p>Explore a variety of frames to give thy photostrip its own charm.</p>
+          </div>
+          <div class="service-card">
+            <h3>Portrait Selection</h3>
+            <p>Capture or upload thy portraits to create a memorable photostrip.</p>
+          </div>
+          <div class="service-card">
+            <h3>Personal Touches</h3>
+            <p>Customize its frame, choose background colors, add little charms, and write thy own inscriptions.</p>
+          </div>
+          <div class="service-card">
+            <h3>Keepsake Download</h3>
+            <p>Download and share thy finished keepsake with those dear to thee.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section">
+        <h2 class="section-title">ABOUT US</h2>
+        <p class="about-desc">
+          <strong>EverStrip</strong> was born from our love for the practicality of a <strong>classic</strong> photo booth and its <strong>playful</strong> visual aesthetic. We believe every simple <strong>moment</strong> with friends, partners, or just yourself deserves to be <strong>celebrated</strong> with a touch of sweet pastel colors and adorable sticker decorations!
+        </p>
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>Angie Kans Rasta</h3>
+            <span class="role">Data Pipeline & Export Architect</span>
+            <p>Manages real-time webcam data streams (WebRTC data streams), modular application state management architecture.</p>
+          </div>
+          <div class="team-card">
+            <h3>Dwi Adela Ramadhani</h3>
+            <span class="role">System & Logic Specialist</span>
+            <p>Developed a 2D Canvas processing engine for photo filter manipulation, frame aspect ratio calculations.</p>
+          </div>
+          <div class="team-card">
+            <h3>Sylviana Dzikri</h3>
+            <span class="role">UX & Visual Specialist</span>
+            <p>Focus on the implementation of drag-and-drop sticker interactive effects, and ensuring consistency of visual aesthetics and user interaction convenience.</p>
+          </div>
+          <div class="team-card">
+            <h3>Dinda Sesiane</h3>
+            <span class="role">Frontend Lead / UI Engineer</span>
+            <p>Responsible for step-by-step UX workflow navigation, and ensuring the layout is integrated responsively and precisely across all screen sizes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <footer id="contact" class="contact-section">
+        <h2>CONTACT US</h2>
+        <p>Have questions or suggestions? We would love to hear from thee!</p>
+        <p>Email: <strong>everstrip@gmail.com</strong></p>
+        <p><a href="#">Send Us A Message!</a></p>
+        <div class="footer-copyright">
+          Crafted with love, cherished forever.<br>
+          © 2026 Everstrip. All rights reserved.
+        </div>
+      </footer>
+    </section>
+
+
+    <!-- PAGE 2: CHOOSE FRAME -->
+    <section id="page-2" class="page">
+      <h2 class="page-title">WHICH FRAME DOTH PLEASE THEE MOST?</h2>
+      
+      <div class="filter-bar">
+        <div class="filter-buttons">
+          <button id="btn-all" class="btn-toggle active">All</button>
+          <button id="btn-filter" class="btn-toggle">Filter</button>
+        </div>
+        <!-- Sub Filter Panel (Horizontal Option) -->
+        <div id="filter-sub-panel" class="filter-sub-panel hidden">
+          <div class="filter-group">
+            <label>Jumlah Frame:</label>
+            <button class="sub-filter-btn active" data-slots="all">Semua</button>
+            <button class="sub-filter-btn" data-slots="3">3 Photos</button>
+            <button class="sub-filter-btn" data-slots="4">4 Photos</button>
+          </div>
+          <div class="filter-group">
+            <label>Tema:</label>
+            <button class="sub-filter-btn active" data-theme="all">Semua</button>
+            <button class="sub-filter-btn" data-theme="classic">Classic</button>
+            <button class="sub-filter-btn" data-theme="dark">Dark Fantasy</button>
+            <button class="sub-filter-btn" data-theme="cute">Cute</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="frame-selector-wrapper">
+        <div class="frame-carousel" id="frame-carousel">
+          <!-- Frame Cards injected via JS -->
+        </div>
+        
+        <!-- Navigation Buttons: Up / Down -->
+        <div class="carousel-nav">
+          <button id="btn-scroll-up" class="nav-arrow"><i class="fa-solid fa-chevron-up"></i></button>
+          <button id="btn-scroll-down" class="nav-arrow"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+      </div>
+
+      <div class="action-footer">
+        <button id="btn-p2-continue" class="btn-continue">Continue</button>
+      </div>
+    </section>
+
+
+    <!-- PAGE 3: TAKE / UPLOAD PHOTO -->
+    <section id="page-3" class="page">
+      <h2 class="page-title">Take a Photo / Upload</h2>
+      <p class="page-subtitle">Use a webcam or upload your favorite photo files for each slot.</p>
+
+      <div class="booth-container">
+        <div class="viewfinder-wrapper">
+          <video id="webcam-preview" autoplay playsinline></video>
+          <canvas id="photo-canvas" class="hidden"></canvas>
+          <div id="countdown-overlay" class="countdown-overlay hidden">3</div>
+        </div>
+
+        <div class="controls-row">
+          <button id="btn-timer-toggle" class="btn-pink-toggle">Timer (3s): OFF</button>
+
+          <button id="btn-shutter" class="btn-shutter">
+            <i class="fa-solid fa-camera"></i>
+          </button>
+
+          <button id="btn-photo-burst" class="btn-burst">
+            <i class="fa-solid fa-bolt"></i> Photo Burst
+          </button>
+
+          <button id="btn-p3-continue" class="btn-continue">Continue</button>
+        </div>
+      </div>
+
+      <!-- List Of Photo Slots -->
+      <div class="slots-container">
+        <div class="slots-header">
+          <h3>List Of Photo Slots</h3>
+          <span id="slot-counter" class="slot-badge">0/4 Terisi</span>
+          <button id="btn-reset-all" class="btn-reset"><i class="fa-solid fa-rotate-right"></i> Reset all</button>
+        </div>
+
+        <div id="photo-slots-list" class="slots-list">
+          <!-- Slots items generated dynamically -->
+        </div>
+
+        <div class="slots-footer">
+          <label for="upload-all-input" class="btn-upload-all">
+            <i class="fa-solid fa-upload"></i> Upload All Photo
+          </label>
+          <input type="file" id="upload-all-input" accept="image/*" multiple class="hidden">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PAGE 4: DECORATE & ADD STICKERS -->
+    <section id="page-4" class="page">
+      <h2 class="page-title">Decorate & Add Stickers</h2>
+      <p class="page-subtitle">Choose thy background, little charms, and a custom footer inscription!</p>
+
+      <div class="editor-layout">
+        <!-- Interactive Photostrip Container -->
+        <div class="photostrip-stage" id="photostrip-stage">
+          <div id="photostrip-frame" class="photostrip-frame">
+            <div id="brush-overlay" class="brush-overlay"></div>
+            <div id="strip-photos-container" class="strip-photos-container">
+              <!-- Photos render here -->
+            </div>
+            <div class="strip-footer">
+              <div id="strip-inscription" class="strip-text">Best Memory</div>
+              <div id="strip-date" class="strip-text">01/01/2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls Side Panel -->
+        <div class="editor-controls">
+          <div class="control-group">
+            <label>Frame Background Color</label>
+            <div class="color-palette" id="color-palette">
+              <button class="color-dot active" data-color="#FFFFFF" style="background: #FFFFFF; border: 1px solid #ccc;"></button>
+              <button class="color-dot" data-color="#E2F0D9" style="background: #E2F0D9;"></button>
+              <button class="color-dot" data-color="#DEEBF7" style="background: #DEEBF7;"></button>
+              <button class="color-dot" data-color="#FCE4D6" style="background: #FCE4D6;"></button>
+              <button class="color-dot" data-color="#800000" style="background: #800000;"></button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Click Stickers To Add <span class="sub-info">*The charms on the canvas can be moved, enlarged, or deleted!</span></label>
+            <div class="sticker-picker" id="sticker-picker">
+              <span>🍕</span><span>🍒</span><span>🍥</span><span>🧈</span><span>🍓</span>
+              <span>🕶️</span><span>💋</span><span>⚽</span><span>🎀</span><span>💻</span>
+              <span>📌</span><span>💢</span><span>💖</span><span>💌</span><span>📖</span>
+              <span>✌️</span><span>🧀</span><span>🥞</span><span>🍪</span><span>🌸</span>
+              <span>🧸</span><span>🍌</span><span>🪗</span><span>❤️</span><span>🎵</span>
+              <span>💤</span><span>🐬</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="footer-text-input">Footer Inscription</label>
+            <input type="text" id="footer-text-input" maxlength="15" value="Best Memory" placeholder="Maksimal 15 karakter">
+          </div>
+
+          <div class="control-group checkbox-group">
+            <input type="checkbox" id="chk-show-date" checked>
+            <label for="chk-show-date">Show today's date</label>
+          </div>
+
+          <button id="btn-p4-complete" class="btn-continue">Complete</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PAGE 5: COMPLETE & DOWNLOAD -->
+    <section id="page-5" class="page">
+      <h2 class="page-title">Yay! Your Photostrip is Complete</h2>
+      <p class="page-subtitle">Download and share these lovely moments across thy favorite social media platforms!</p>
+
+      <div class="export-layout">
+        <div class="preview-stage" id="final-preview-stage">
+          <!-- Rendered final strip container -->
+        </div>
+
+        <div class="export-actions">
+          <button id="btn-download-png" class="btn-action">
+            <i class="fa-solid fa-download"></i> Download (.png)
+          </button>
+          <button id="btn-share-link" class="btn-action">
+            <i class="fa-solid fa-share-nodes"></i> Share (Copy Link)
+          </button>
+          <button id="btn-begin-anew" class="btn-action btn-gold">
+            <i class="fa-solid fa-rotate-left"></i> Begin Anew
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
